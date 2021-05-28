@@ -9,7 +9,6 @@ const AddModal =({getData})=> {
 
     const [show,setShow] = useState(false)
     const [input, setInput] = useState({
-        Id:uuidv4(),
         Title:'',
         Description:'',
         PosterURL:'',
@@ -20,7 +19,7 @@ const AddModal =({getData})=> {
         };
     const sendData = (e) => {
         e.preventDefault();
-        getData(input);
+        getData({...input, Id:uuidv4()});
     };
     const handleShow = () => {
         setShow(!show)    
